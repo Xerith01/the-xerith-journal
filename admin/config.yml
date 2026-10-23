@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/the-xerith-journal
+  branch: main
+
+site_url: /
+display_url: /
+publish_mode: editorial_workflow
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+editor:
+  preview: true
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/posts"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    preview_path: "journal/{{slug}}/"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly name, e.g. learning-in-public" }
+      - { label: "Publish date", name: "date", widget: "datetime", format: "YYYY-MM-DDTHH:mm:ssZ" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Featured image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Category", name: "category", widget: "select", options: ["Journal", "Cybersecurity", "Learning", "Projects", "Personal"], default: "Journal" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "SEO description", name: "description", widget: "text", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Body", name: "body", widget: "markdown" }

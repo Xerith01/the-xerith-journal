@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<article class="article-wrap wrap">
+  <a class="back-link" href="/#latest">← Back to the journal</a>
+  <header class="article-header">
+    <p class="eyebrow"><span class="eyebrow-dot"></span> {{ category or "Journal" }}</p>
+    <h1>{{ title }}</h1>
+    <p class="article-deck">{{ summary }}</p>
+    <div class="post-meta article-meta"><time datetime="{{ page.date | dateIso }}">{{ page.date | dateReadable }}</time><span>·</span><span>{{ content | readingTime }}</span></div>
+  </header>
+  {% if featuredImage %}<img class="article-cover" src="{{ featuredImage }}" alt="" loading="eager">{% endif %}
+  <div class="prose">{{ content | safe }}</div>
+  {% if tags and tags.length %}<div class="article-tags"><span>FILED UNDER</span>{% for tag in tags %}<span class="tag">#{{ tag }}</span>{% endfor %}</div>{% endif %}
+  <div class="article-end"><span>✳</span><p>Thanks for reading.</p><a class="text-link" href="/#latest">Read another entry ↗</a></div>
+</article>

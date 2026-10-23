@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "The Xerith Journal" }}</title>
+  <meta name="description" content="{{ description or 'Notes on learning, technology, and the ideas worth keeping.' }}">
+  <meta name="theme-color" content="#f5f2eb">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%231f3b35'/%3E%3Ctext x='50' y='66' font-size='48' text-anchor='middle' fill='%23f5f2eb' font-family='Georgia'%3EX%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav-wrap">
+      <a class="brand" href="/" aria-label="The Xerith Journal home"><span class="brand-mark">X</span><span class="brand-text">THE XERITH <b>JOURNAL</b></span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/#latest">Journal</a><a href="/about/">About</a><a class="nav-admin" href="/admin/">Admin <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-top">
+      <a class="brand footer-brand" href="/"><span class="brand-mark">X</span><span class="brand-text">THE XERITH <b>JOURNAL</b></span></a>
+      <p>A living archive of things learned and things still in progress.</p>
+      <a class="back-top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a>
+    </div>
+    <div class="wrap footer-bottom"><span>© {{ "now" | dateYear }} THE XERITH JOURNAL</span><span>MADE WITH INTENTION <i>✳</i></span></div>
+  </footer>
+  <script src="/assets/main.js" defer></script>
+</body>
+</html>

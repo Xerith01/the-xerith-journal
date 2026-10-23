@@ -1,0 +1,55 @@
+---
+layout: base.njk
+title: "The Xerith Journal"
+description: "Notes on learning, technology, and the ideas worth keeping."
+permalink: /
+---
+<section class="hero wrap">
+  <p class="eyebrow reveal"><span class="eyebrow-dot"></span> A PERSONAL JOURNAL, PUBLICLY WRITTEN</p>
+  <h1 class="hero-title reveal">Curiosity, <em>documented.</em></h1>
+  <p class="hero-copy reveal">Notes on technology, security, learning, and the small discoveries that make the bigger picture clearer.</p>
+  <a class="text-link reveal" href="#latest">Explore the journal <span aria-hidden="true">↘</span></a>
+  <div class="hero-stamp" aria-hidden="true"><span>EST.</span><strong>XR</strong><span>FIELD NOTES</span></div>
+</section>
+
+<section class="latest wrap" id="latest">
+  <div class="section-head reveal">
+    <div><p class="eyebrow">THE LATEST</p><h2>Recent entries<span class="accent">.</span></h2></div>
+    <span class="section-note">{{ collections.post | length }} entries in the journal</span>
+  </div>
+  <div class="post-grid">
+    {% for post in collections.post %}
+      <article class="post-card reveal" data-search="{{ post.data.title | lower }} {{ post.data.summary | lower }} {{ post.data.category | lower }} {{ post.data.tags | join(' ') | lower }}">
+        <a class="post-card-link" href="{{ post.url }}">
+          <div class="post-image">
+            {% if post.data.featuredImage %}
+              <img src="{{ post.data.featuredImage }}" alt="" loading="lazy">
+            {% else %}
+              <div class="image-placeholder"><span>XR</span><i>✳</i></div>
+            {% endif %}
+            <span class="category-pill">{{ post.data.category or "Journal" }}</span>
+          </div>
+          <div class="post-meta"><time datetime="{{ post.date | dateIso }}">{{ post.date | dateReadable }}</time><span>·</span><span>{{ post.templateContent | readingTime }}</span></div>
+          <h3>{{ post.data.title }}</h3>
+          <p class="post-summary">{{ post.data.summary }}</p>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+    {% else %}
+      <div class="empty-state">
+        <span class="empty-mark">✳</span>
+        <h3>The first entry is yours to write.</h3>
+        <p>Open the admin studio to publish your first story. This space is ready when you are.</p>
+        <a class="text-link" href="/admin/">Open admin studio ↗</a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="wrap manifesto-inner reveal">
+    <p class="eyebrow">A NOTE TO SELF</p>
+    <p class="manifesto-quote">“Stay curious. Build carefully. <em>Write it down.</em>”</p>
+    <span class="manifesto-sign">— THE XERITH JOURNAL</span>
+  </div>
+</section>
