@@ -32,5 +32,5 @@ collections:
       - { label: "Category", name: "category", widget: "select", options: ["Journal", "Cybersecurity", "Learning", "Projects", "Personal"], default: "Journal" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "SEO description", name: "description", widget: "text", required: false }
-      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Body", name: "body", widget: "markdown" }
